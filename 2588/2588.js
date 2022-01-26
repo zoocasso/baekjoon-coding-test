@@ -1,0 +1,12 @@
+const fs = require('fs');
+const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+const A = parseInt(input[0]);
+const second = input[1].split("");
+const B = parseInt(second[2]);
+const C = parseInt(second[1]);
+const D = parseInt(second[0]);
+const E = parseInt(input[1]);
+console.log(A*B);
+console.log(A*C);
+console.log(A*D);
+console.log(A*E);
