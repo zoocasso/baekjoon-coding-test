@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync("/dev/stdin").toString().trim().split('\n');
+const input = require('fs').readFileSync("./input.txt").toString().trim().split('\n');
 const remainder = [];
 for(i=0;i<10;i++){
   remainder.push(parseInt(input[i]%42));

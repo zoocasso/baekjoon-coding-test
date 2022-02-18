@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync("/dev/stdin").toString().trim().split('\n');
+const input = require('fs').readFileSync("./input.txt").toString().trim().split('\n');
 
 const A = input[0];
 const B = input[1];

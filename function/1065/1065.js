@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync('.input.txt').toString().trim();
+const input = require('fs').readFileSync('./input.txt').toString().trim();
 
 let count = 0;
 

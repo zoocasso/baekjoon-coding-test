@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync("/dev/stdin").toString().trim().split('\n');
+const input = require('fs').readFileSync("./input.txt").toString().trim().split('\n');
 const N = input[0];
 
 let arr=[];

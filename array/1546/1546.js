@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync("dev/stdin").toString().trim().split('\n');
+const input = require('fs').readFileSync("./input.txt").toString().trim().split('\n');
 const M = input[0];
 const arr = input[1].split(' ').map(i=>+i);
 let sum = 0;
