@@ -1,34 +1,21 @@
-const input = require('fs').readFileSync('./input.txt').toString().split('\n').map(x=>parseInt(x));
+const input = require('fs').readFileSync('/dev/stdin').toString().split('\n').map(x=>parseInt(x));
 
-const isPrimeNumber = [];
-let results = [];
+let prime = [];
 let a = 0;
 let b = 0;
 
-function calculator(number){
-  results = [];
-  for(let i=0; i<=number; i++){
-    isPrimeNumber.push(true);
-  }
-
-  isPrimeNumber[0] = isPrimeNumber[1] = false;
-
-  for (let i=2; i<=Math.ceil(Math.sqrt(number)); i++) {
-    if(isPrimeNumber[i]) {
-      let m = 2;
-      while(i*m<=number) { 
-        isPrimeNumber[i*m] = false;
-        m++;
+function makePrime() {
+  for (let i = 2; i <= 10000; i++) {
+    let isPrime = true;
+    for (let j = 2; j <= Math.sqrt(i); j++) {
+      if (i % j === 0) {
+        isPrime = false;
+        break;
       }
     }
+    if (isPrime)
+      prime.push(i);
   }
-
-  for(let i=0; i<=number; i++) {
-    if(isPrimeNumber[i]) { 
-    results.push(i);
-    }
-  }
-  return results;
 }
 
 function sumfunc(arr,number){
@@ -36,10 +23,10 @@ function sumfunc(arr,number){
   for(let i=0;i<arr.length;i++){
     let sum = arr[i];
     for(let j=0;j<arr.length;j++){
+      if(sum+arr[j]>number)break;
       if(sum+arr[j] == number){
-        if(sum<=arr[j]){
+        if(arr[i]<=arr[j]){
           if(arr[j]-arr[i]<diff){
-            diff = arr[j]-arr[i];
             a = arr[i];
             b = arr[j];
           }
@@ -53,10 +40,10 @@ function sumfunc(arr,number){
 
 function init(){
   const T = input[0];
+  makePrime();
   for(let i=1;i<=T;i++){
     const N = input[i];
-    calculator(N);
-    sumfunc(results,N);
+    sumfunc(prime,N);
   }
 }
 
